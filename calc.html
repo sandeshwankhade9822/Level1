@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f2f2f2;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        p {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Basic Calculator</h1>
+
+    <form id="calculator-form">
+        <label for="num1">Number 1:</label>
+        <input type="number" id="num1" name="num1" required>
+        <br>
+        <label for="num2">Number 2:</label>
+        <input type="number" id="num2" name="num2" required>
+        <br>
+        <button type="button" id="calculate-btn">Calculate</button>
+    </form>
+
+    <p>Result: <span id="result">-</span></p>
+    <button type="button" id="calculate-btn"><a href="./index.html">Back</a></button>
+
+    <script>
+        // Get the form elements and result element
+        const form = document.getElementById("calculator-form");
+        const num1Input = document.getElementById("num1");
+        const num2Input = document.getElementById("num2");
+        const resultSpan = document.getElementById("result");
+
+        // Add an event listener to the "Calculate" button
+        document.getElementById("calculate-btn").addEventListener("click", function () {
+            // Parse the input values as numbers
+            const num1 = parseFloat(num1Input.value);
+            const num2 = parseFloat(num2Input.value);
+
+            // Check if the input values are valid numbers
+            if (!isNaN(num1) && !isNaN(num2)) {
+                // Calculate the sum
+                const sum = num1 + num2;
+                // Display the result
+                resultSpan.textContent = sum;
+            } else {
+                // Display an error message if the input values are not valid numbers
+                resultSpan.textContent = "Invalid input. Please enter valid numbers.";
+            }
+        });
+    </script>
+</body>
+
+</html>
